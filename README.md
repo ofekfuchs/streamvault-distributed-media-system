@@ -1,6 +1,6 @@
 # StreamVault - Distributed Media Records System
 
-StreamVault is a Django web application developed as a wet assignment in a Distributed Information Systems course.
+StreamVault is a Django web application developed as a wet assignment in a database course.
 The system models a media-record workflow: households can order and return programs, submit rankings, and view SQL-based analytical results.
 
 ## Table of Contents
@@ -81,4 +81,4 @@ This project demonstrates practical backend and database skills:
 
 ## Academic Context
 
-Built as part of a Distributed Information Systems course assignment focused on hands-on database application development.
+Built as part of a database course assignment focused on hands-on database application development.
