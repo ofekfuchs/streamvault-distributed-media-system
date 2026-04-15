@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <meta charset="UTF-8">
+    <title>Rankings</title>
+</head>
+<body>
+<header>
+<H1>Rankings</H1>
+</header>
+<nav>
+<br>
+<a href="index" target="mainFrame"; >Home</a><br>
+<br>
+<a href="QueryResults" target="mainFrame" ; >Query Result</a><br>
+<br>
+<a href="RecordsManagement" target="mainFrame"; >Records Management</a><br>
+<br>
+<a href="Rankings" target="mainFrame"; >Rankings</a><br>
+<br></nav>
+<h2>RANK YOUR PROGRAM</h2>
+<form method="post">
+    {% csrf_token %}
+    <label for="hID">Household ID:</label>
+    <select id="hID" name="hID">
+        {% for family in list_of_hid %}
+            <option value="{{ family.hID }}">{{ family.hID }}</option>
+        {% endfor %}
+    </select>
+    <br>
+    <label for="title">title</label>
+    <select id="title" name="title">
+        {% for program in list_of_program %}
+            <option value="{{ program.title }}">{{ program.title }}</option>
+        {% endfor %}
+    </select>
+    <br>
+    <label for="rank">rank</label>
+    <select id="rank" name="rank">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+    <br>
+    <input type="submit" value="Submit">
+</form>
+<h2>Presentation of a spoken program</h2>
+<form method="post">
+    {% csrf_token %}
+    <label for="genre">Genre:</label>
+    <select id="genre" name="genre">
+        {% for genre in list_of_genre %}
+            <option value="{{ genre.genre }}">{{ genre.genre }}</option>
+        {% endfor %}
+    </select>
+    <br>
+    <label for="min_rank">Minimum Ranks:</label>
+    <input type="number" id="min_rank" name="min_rank">
+    <br>
+    <input type="submit" value="Submit">
+</form>
+<table>
+    <th>Title</th>
+    <th>Minimum Rank</th>
+        {% for spoken_program in spoken_program %}
+            <tr>
+            <td>{{ spoken_program.title}} </td>
+            <td>{{ spoken_program.Average_rank }} </td>
+            </tr>
+        {% endfor %}
+        {% for complete_spoken_program in complete_spoken_program %}
+            <tr>
+            <td>{{ complete_spoken_program.title}} </td>
+            <td>{{ complete_spoken_program.Average_rank }} </td>
+            </tr>
+        {% endfor %}
+</table><br><br>
+</body>
+</html>

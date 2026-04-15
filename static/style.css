@@ -1,0 +1,80 @@
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 200px;
+  background-color: #3F51B5; /* Blue */
+  color: #fff;
+  font-family: Tahoma;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  padding: 1rem;
+}
+
+nav a:hover {
+  background-color: #303F9F; /* Darker blue */
+  opacity: 70%;
+}
+
+header {
+  text-align: center;
+  background-color: #9C27B0; /* Purple */
+  color: #fff;
+  padding: 2rem;
+  text-align: center;
+}
+
+header h1{
+  background-color: #9C27B0;
+  margin: 0;
+  font-size: 2rem;
+}
+
+main {
+  font-family: Tahoma;
+  margin-left: 200px;
+  padding: 1rem;
+}
+
+body {
+  font-family: Tahoma;
+  text-align: center;
+  background-color: #F5F5F5; /* Light grey */
+  align-content: center;
+}
+
+table {
+  margin: auto;
+  border-collapse: collapse;
+  border: 1px solid #9C27B0; /* Purple */
+  font-family: Tahoma, sans-serif;
+}
+
+th {
+  background-color: #9C27B0; /* Purple */
+  color: white;
+  padding: 10px;
+  border: 1px solid #9C27B0; /* Purple */
+}
+
+td {
+  background-color: #F5F5F5; /* Light grey */
+  padding: 10px;
+  border: 1px solid #9C27B0; /* Purple */
+}

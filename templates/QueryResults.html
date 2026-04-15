@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <meta charset="UTF-8">
+    <title>Query Results</title>
+</head>
+<body>
+<header><h1>Query Results<h1></header>
+<nav>
+<br>
+<a href="index" target="mainFrame"; >Home</a><br>
+<br>
+<a href="QueryResults" target="mainFrame" ; >Query Result</a><br>
+<br>
+<a href="RecordsManagement" target="mainFrame"; >Records Management</a><br>
+<br>
+<a href="Rankings" target="mainFrame"; >Rankings</a><br>
+<br></nav>
+<table>
+    <th>Genre</th>
+    <th>Title</th>
+    <th>Duration</th>
+        {% for result_sql1 in result_sql1 %}
+            <tr>
+            <td>{{ result_sql1.genre}} </td>
+            <td>{{ result_sql1.title }} </td>
+            <td>{{ result_sql1.duration }}</td>
+            </tr>
+        {% endfor %}
+</table><br><br>
+<table>
+<th>Title</th>
+<th>Average Rank</th>
+        {% for result_sql2 in result_sql2 %}
+            <tr>
+            <td>{{ result_sql2.title}} </td>
+            <td>{{ result_sql2.Average_Rank }} </td>
+            </tr>
+        {% endfor %}
+</table><br><br>
+<table>
+<th>Title</th>
+        {% for result_sql3 in result_sql3 %}
+            <tr>
+            <td>{{ result_sql3.title}} </td>
+            </tr>
+        {% endfor %}
+</table><br><br>
+</body>
+</html>

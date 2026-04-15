@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <meta charset="UTF-8">
+    <title>Records Management</title>
+</head>
+<body>
+<header>
+<H1>Records Menagement</H1>
+</header>
+<nav>
+<br>
+<a href="index" target="mainFrame"; >Home</a><br>
+<br>
+<a href="QueryResults" target="mainFrame" ; >Query Result</a><br>
+<br>
+<a href="RecordsManagement" target="mainFrame"; >Records Management</a><br>
+<br>
+<a href="Rankings" target="mainFrame"; >Rankings</a><br>
+<br></nav>
+<form method="POST" action="RecordsManagement">
+    <h2>Order</h2>
+    {% csrf_token %}
+    Household ID: <input type="number" name="hID" maxlength="45" required><br>
+    title: <input type="text" name="title" maxlength="45" required><br>
+    <button type="submit">Submit</button>
+</form>
+{% if flag == 1 %}
+    <p><b>HOUSEHOLD ID DOESN'T EXIST</b></p>
+{% endif %}
+{% if flag == 2 %}
+    <p><b>REQUESTED PROGRAM DOESN'T DOCUMENTED IN DB</b></p>
+{% endif %}
+{% if flag == 3 %}
+    <p><b>FAMILY ALREADY HAS 3 RECORDED PROGRAMS</b></p>
+{% endif %}
+{% if flag == 4 %}
+    <p><b>REQUESTED RECORDED PROGRAM HAS ALREADY TAKEN BY ANOTHER FAMILY AND HASN'T RETURNED</b></p>
+{% endif %}
+{% if flag == 5 %}
+    <p><b>FAMILY ALREADY HOLDS REQUESTED RECORDED PROGRAM</b></p>
+{% endif %}
+{% if flag == 6 %}
+    <p><b>FAMILY ALREADY HELD THIS RECORDED PROGRAM</b></p>
+{% endif %}
+{% if flag == 7 %}
+    <p><b>FAMILY HAS CHILDREN AND REQUESTED PROGRAM GENRE IS REALITY OR ADULTS ONLY</b></p>
+{% endif %}
+<form method="POST" action="returnOrder">
+    <h2>Return</h2>
+    {% csrf_token %}
+    Household ID: <input type="number" name="return_hID" maxlength="45" required><br>
+    title: <input type="text" name="return_title" maxlength="50" required><br>
+    <button type="submit">Submit</button>
+    {% if flag_of_return == 1 %}
+        <p><b>HOUSEHOLD ID DOESN'T EXIST</b></p>
+    {% endif %}
+    {% if flag_of_return == 2 %}
+        <p><b>REQUESTED PROGRAM DOESN'T DOCUMENTED IN DB </b></p>
+    {% endif %}
+    {% if flag_of_return == 3 %}
+        <p><b>REQUESTED PROGRAM DOESN'T BELONG TO THE FAMILY</b></p>
+    {% endif %}
+</form>
+<table>
+    <th>Household ID</th>
+    <th>Total Orders</th>
+    {% for result in sql_result %}
+        <tr>
+            <td>{{ result.hID }} </td>
+            <td>{{ result.Total_Orders }} </td>
+        </tr>
+    {% endfor %}
+</table>
+<br><br>
+</body>
+</html>
